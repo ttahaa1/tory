@@ -64,18 +64,14 @@ case $Install in
     cd ..
     sudo rm -rf luarocks*
     sudo wget https://github.com/ttahaa1/tory/raw/main/tdlua.zip
-    sudo unzip tdlua.zip
     sudo mv tdlua.so /usr/lib/x86_64-linux-gnu/lua/5.1/tdlua.so
-    sudo rm -fr tdlua.zip
     sudo lua Fast.lua
     ;;
 2)
     echo -e "\e[1m\e[32mThe bot is running now : جاري تشغيل البوت الان : \e[0m"
     sleep 2
     sudo wget https://github.com/ttahaa1/tory/raw/main/tdlua.zip
-    sudo unzip tdlua.zip
     sudo mv tdlua.so /usr/lib/x86_64-linux-gnu/lua/5.1/tdlua.so
-    sudo rm -fr tdlua.zip
     sudo lua Fast.lua
     ;;
 esac
