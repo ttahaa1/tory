@@ -21,9 +21,8 @@ case $Install in
 1)
     echo -e '\033[0;33mOffice installation has begun'
     sleep 2
-    sudo yum update -y
-    sudo yum upgrade -y
-    sudo yum install -y wget
+    sudo pacman -Syu --noconfirm
+    sudo pacman -S wget --noconfirm
     sudo wget https://luarocks.org/releases/luarocks-2.4.3.tar.gz
     sudo tar zxpf luarocks-2.4.3.tar.gz
     cd luarocks-2.4.3
@@ -35,14 +34,14 @@ case $Install in
     sudo luarocks install redis-lua
     sudo luarocks remove lua-cjson2
     sudo luarocks remove lua-cjson
-    sudo yum install lua-cjson -y
+    sudo pacman -S lua-cjson --noconfirm
     sudo luarocks install Lua-cURL
     cd ..
-    sudo yum install tmux -y
-    sudo yum install screen -y
-    sudo yum install zip -y
-    sudo yum install readline-devel libconfig-devel openssl-devel lua-devel make unzip git redis autoconf gcc-c++ jansson-devel python-devel expat-devel -y
-    sudo yum install upstart -y
+    sudo pacman -S tmux --noconfirm
+    sudo pacman -S screen --noconfirm
+    sudo pacman -S zip --noconfirm
+    sudo pacman -S readline libconfig openssl lua make unzip git redis autoconf gcc jansson python expat --noconfirm
+    sudo pacman -S upstart --noconfirm
     sudo wget http://luarocks.org/releases/luarocks-2.2.2.tar.gz;sudo tar zxpf luarocks-2.2.2.tar.gz;cd luarocks-2.2.2 && sudo ./configure
     sudo make bootstrap
     sudo luarocks install luasocket
@@ -50,20 +49,21 @@ case $Install in
     sudo luarocks install lua-term
     sudo luarocks install Lua-cURL
     sudo systemctl start redis.service
-    sudo yum install -y libconfig++-devel
-    sudo yum install -y libstdc++
-    sudo yum install -y epel-release
-    sudo yum install lua-lgi -y
-    sudo yum install -y python3
-    sudo yum install -y python3-pip
+    sudo pacman -S libconfig++ --noconfirm
+    sudo pacman -S libstdc++ --noconfirm
+    sudo pacman -S epel-release --noconfirm
+    sudo pacman -S lua-lgi --noconfirm
+    sudo pacman -S python --noconfirm
+    sudo pacman -S python-pip --noconfirm
     sudo pip3 install yt-dlp
     sudo pip3 install ffmpeg
-    sudo yum install -y ffmpeg
-    sudo yum install -y gnome-calculator
+    sudo pacman -S ffmpeg --noconfirm
+    sudo pacman -S gnome-calculator --noconfirm
     sudo pip3 install gtts
-    sudo yum update -y
+    sudo pacman -Syu --noconfirm
     cd ..
     sudo rm -rf luarocks*
+    sudo wget https://github.com/ttahaa1/tory/raw/main/tdlua.zip
     sudo unzip tdlua.zip
     sudo mv tdlua.so /usr/lib64/lua/5.1/tdlua.so
     sudo rm -fr tdlua.zip
@@ -72,6 +72,7 @@ case $Install in
 2)
     echo -e "\e[1m\e[32mThe bot is running now : جاري تشغيل البوت الان : \e[0m"
     sleep 2
+    sudo wget https://github.com/ttahaa1/tory/raw/main/tdlua.zip
     sudo unzip tdlua.zip
     sudo mv tdlua.so /usr/lib64/lua/5.1/tdlua.so
     sudo rm -fr tdlua.zip
