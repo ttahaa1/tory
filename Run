@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # تغيير الدليل إلى موقع السكربت
-cd $(cd $(dirname $0); pwd)
+cd "$(cd "$(dirname "$0")"; pwd)"
 
 echo -e '\e[1m\e[31m
 Storm source is being installed, 
@@ -21,61 +21,61 @@ case $Install in
 1)
     echo -e '\033[0;33mOffice installation has begun'
     sleep 2
-    sudo pacman -Syu --noconfirm
-    sudo pacman -S wget --noconfirm
-    sudo wget https://luarocks.org/releases/luarocks-2.4.3.tar.gz
-    sudo tar zxpf luarocks-2.4.3.tar.gz
+     pacman -Syu --noconfirm
+     pacman -S wget --noconfirm
+    wget https://luarocks.org/releases/luarocks-2.4.3.tar.gz
+    tar zxpf luarocks-2.4.3.tar.gz
     cd luarocks-2.4.3
-    sudo ./configure; sudo make bootstrap
-    sudo make install
-    sudo luarocks install luasocket
-    sudo luarocks install luasec
-    sudo luarocks install luautf8
-    sudo luarocks install redis-lua
-    sudo luarocks remove lua-cjson2
-    sudo luarocks remove lua-cjson
-    sudo pacman -S lua-cjson --noconfirm
-    sudo luarocks install Lua-cURL
+    ./configure; make bootstrap
+    make install
+    luarocks install luasocket
+    luarocks install luasec
+    luarocks install luautf8
+    luarocks install redis-lua
+    luarocks remove lua-cjson2
+    luarocks remove lua-cjson
+    pacman -S lua-cjson --noconfirm
+    luarocks install Lua-cURL
     cd ..
-    sudo pacman -S tmux --noconfirm
-    sudo pacman -S screen --noconfirm
-    sudo pacman -S zip --noconfirm
-    sudo pacman -S readline libconfig openssl lua make unzip git redis autoconf gcc jansson python expat --noconfirm
-    sudo pacman -S upstart --noconfirm
-    sudo wget http://luarocks.org/releases/luarocks-2.2.2.tar.gz;sudo tar zxpf luarocks-2.2.2.tar.gz;cd luarocks-2.2.2 && sudo ./configure
-    sudo make bootstrap
-    sudo luarocks install luasocket
-    sudo luarocks install luasec
-    sudo luarocks install lua-term
-    sudo luarocks install Lua-cURL
-    sudo systemctl start redis.service
-    sudo pacman -S libconfig++ --noconfirm
-    sudo pacman -S libstdc++ --noconfirm
-    sudo pacman -S epel-release --noconfirm
-    sudo pacman -S lua-lgi --noconfirm
-    sudo pacman -S python --noconfirm
-    sudo pacman -S python-pip --noconfirm
-    sudo pip3 install yt-dlp
-    sudo pip3 install ffmpeg
-    sudo pacman -S ffmpeg --noconfirm
-    sudo pacman -S gnome-calculator --noconfirm
-    sudo pip3 install gtts
-    sudo pacman -Syu --noconfirm
+    pacman -S tmux --noconfirm
+    pacman -S screen --noconfirm
+    pacman -S zip --noconfirm
+    pacman -S readline libconfig openssl lua make unzip git redis autoconf gcc jansson python expat --noconfirm
+    pacman -S upstart --noconfirm
+    wget http://luarocks.org/releases/luarocks-2.2.2.tar.gz; tar zxpf luarocks-2.2.2.tar.gz; cd luarocks-2.2.2 && ./configure
+    make bootstrap
+    luarocks install luasocket
+    luarocks install luasec
+    luarocks install lua-term
+    luarocks install Lua-cURL
+    systemctl start redis.service
+    pacman -S libconfig++ --noconfirm
+    pacman -S libstdc++ --noconfirm
+    pacman -S epel-release --noconfirm
+    pacman -S lua-lgi --noconfirm
+    pacman -S python --noconfirm
+    pacman -S python-pip --noconfirm
+    pip3 install yt-dlp
+    pip3 install ffmpeg
+    pacman -S ffmpeg --noconfirm
+    pacman -S gnome-calculator --noconfirm
+    pip3 install gtts
+    pacman -Syu --noconfirm
     cd ..
-    sudo rm -rf luarocks*
-    sudo wget https://github.com/ttahaa1/tory/raw/main/tdlua.zip
-    sudo unzip tdlua.zip
-    sudo mv tdlua.so /usr/lib64/lua/5.1/tdlua.so
-    sudo rm -fr tdlua.zip
-    sudo lua Fast.lua
+    rm -rf luarocks*
+    wget https://github.com/ttahaa1/tory/raw/main/tdlua.zip
+    unzip tdlua.zip
+    mv tdlua.so /usr/lib64/lua/5.1/tdlua.so
+    rm -fr tdlua.zip
+    lua Fast.lua
     ;;
 2)
     echo -e "\e[1m\e[32mThe bot is running now : جاري تشغيل البوت الان : \e[0m"
     sleep 2
-    sudo wget https://github.com/ttahaa1/tory/raw/main/tdlua.zip
-    sudo unzip tdlua.zip
-    sudo mv tdlua.so /usr/lib64/lua/5.1/tdlua.so
-    sudo rm -fr tdlua.zip
-    sudo lua Fast.lua
+    wget https://github.com/ttahaa1/tory/raw/main/tdlua.zip
+    unzip tdlua.zip
+    mv tdlua.so /usr/lib64/lua/5.1/tdlua.so
+    rm -fr tdlua.zip
+    lua Fast.lua
     ;;
 esac
