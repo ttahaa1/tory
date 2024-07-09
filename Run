@@ -21,8 +21,8 @@ case $Install in
 1)
     echo -e '\033[0;33mOffice installation has begun'
     sleep 2
-    dnf update -y
-    dnf install wget -y
+    sudo apt-get update
+    sudo apt-get install wget -y
     sudo wget https://luarocks.github.io/luarocks/releases/luarocks-2.4.3.tar.gz
     sudo tar zxpf luarocks-2.4.3.tar.gz
     cd luarocks-2.4.3
@@ -34,38 +34,38 @@ case $Install in
     sudo luarocks install redis-lua
     sudo luarocks remove lua-cjson2
     sudo luarocks remove lua-cjson
-    dnf install lua-cjson -y
+    sudo apt-get install lua-cjson -y
     sudo luarocks install Lua-cURL
     cd ..
-    dnf install tmux -y
-    dnf install screen -y
-    dnf install zip -y
-    dnf install readline libconfig openssl lua make unzip git redis autoconf gcc jansson python expat -y
-    dnf install upstart -y
+    sudo apt-get install tmux -y
+    sudo apt-get install screen -y
+    sudo apt-get install zip -y
+    sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.1 liblua5.1-dev -y
+    sudo apt-get install upstart -y
     sudo wget http://luarocks.org/releases/luarocks-2.2.2.tar.gz;sudo tar zxpf luarocks-2.2.2.tar.gz;cd luarocks-2.2.2 && sudo ./configure
     sudo make bootstrap
     sudo luarocks install luasocket
     sudo luarocks install luasec
     sudo luarocks install lua-term
     sudo luarocks install Lua-cURL
-    sudo systemctl start redis.service
-    dnf install libconfig++ -y
-    dnf install libstdc++ -y
-    dnf install epel-release -y
-    dnf install lua-lgi -y
-    dnf install python -y
-    dnf install python-pip -y
+    sudo systemctl start redis-server
+    sudo apt-get install libconfig++ -y
+    sudo apt-get install libstdc++6 -y
+    sudo apt-get install software-properties-common -y
+    sudo apt-get install lua-lgi -y
+    sudo apt-get install python -y
+    sudo apt-get install python-pip -y
     sudo pip3 install yt-dlp
     sudo pip3 install ffmpeg
-    dnf install ffmpeg -y
-    dnf install gnome-calculator -y
+    sudo apt-get install ffmpeg -y
+    sudo apt-get install gnome-calculator -y
     sudo pip3 install gtts
-    dnf update -y
+    sudo apt-get update -y
     cd ..
     sudo rm -rf luarocks*
     sudo wget https://github.com/ttahaa1/tory/raw/main/tdlua.zip
     sudo unzip tdlua.zip
-    sudo mv tdlua.so /usr/lib64/lua/5.1/tdlua.so
+    sudo mv tdlua.so /usr/lib/x86_64-linux-gnu/lua/5.1/tdlua.so
     sudo rm -fr tdlua.zip
     sudo lua Fast.lua
     ;;
@@ -74,7 +74,7 @@ case $Install in
     sleep 2
     sudo wget https://github.com/ttahaa1/tory/raw/main/tdlua.zip
     sudo unzip tdlua.zip
-    sudo mv tdlua.so /usr/lib64/lua/5.1/tdlua.so
+    sudo mv tdlua.so /usr/lib/x86_64-linux-gnu/lua/5.1/tdlua.so
     sudo rm -fr tdlua.zip
     sudo lua Fast.lua
     ;;
