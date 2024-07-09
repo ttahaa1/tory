@@ -21,9 +21,9 @@ case $Install in
 1)
     echo -e '\033[0;33mOffice installation has begun'
     sleep 2
-    sudo yum update -y
-    sudo yum upgrade -y
-    sudo yum install -y wget
+    sudo apt update -y
+    sudo apt upgrade -y
+    sudo apt install -y wget
     sudo wget https://luarocks.org/releases/luarocks-2.4.3.tar.gz
     sudo tar zxpf luarocks-2.4.3.tar.gz
     cd luarocks-2.4.3
@@ -38,11 +38,11 @@ case $Install in
     sudo yum install lua-cjson -y
     sudo luarocks install Lua-cURL
     cd ..
-    sudo yum install tmux -y
-    sudo yum install screen -y
-    sudo yum install zip -y
-    sudo yum install readline-devel libconfig-devel openssl-devel lua-devel make unzip git redis autoconf gcc-c++ jansson-devel python-devel expat-devel -y
-    sudo yum install upstart -y
+    sudo apt install tmux -y
+    sudo apt install screen -y
+    sudo apt install zip -y
+    sudo apt install readline-devel libconfig-devel openssl-devel lua-devel make unzip git redis autoconf gcc-c++ jansson-devel python-devel expat-devel -y
+    sudo apt install upstart -y
     sudo wget http://luarocks.org/releases/luarocks-2.2.2.tar.gz;sudo tar zxpf luarocks-2.2.2.tar.gz;cd luarocks-2.2.2 && sudo ./configure
     sudo make bootstrap
     sudo luarocks install luasocket
@@ -50,18 +50,18 @@ case $Install in
     sudo luarocks install lua-term
     sudo luarocks install Lua-cURL
     sudo systemctl start redis.service
-    sudo yum install -y libconfig++-devel
-    sudo yum install -y libstdc++
-    sudo yum install -y epel-release
-    sudo yum install lua-lgi -y
-    sudo yum install -y python3
-    sudo yum install -y python3-pip
+    sudo apt install -y libconfig++-devel
+    sudo apt install -y libstdc++
+    sudo apt install -y epel-release
+    sudo apt install lua-lgi -y
+    sudo apt install -y python3
+    sudo apt install -y python3-pip
     sudo pip3 install yt-dlp
     sudo pip3 install ffmpeg
-    sudo yum install -y ffmpeg
-    sudo yum install -y gnome-calculator
+    sudo apt install -y ffmpeg
+    sudo apt install -y gnome-calculator
     sudo pip3 install gtts
-    sudo yum update -y
+    sudo apt update -y
     cd ..
     sudo rm -rf luarocks*
     sudo unzip tdlua.zip
